@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Object-Oriented Programming Guide</title>
+    <link rel="stylesheet" href="java_oop_style.css">
+</head>
+<body>
+    <header>
+        <h1>Java Object-Oriented Programming Guide</h1>
+        <p>Interactive Learning for Diploma Students</p>
+        
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <span class="progress-text" id="progressText">0% Complete</span>
+        </div>
+    </header>
+
+    <!-- Slide Navigation Controls -->
+    <div class="slide-controls">
+        <button class="slide-btn prev-btn" id="prevBtn" onclick="navigateSlide(-1)">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15,18 9,12 15,6"></polyline>
+            </svg>
+            Previous
+        </button>
+        
+        <div class="slide-indicator">
+            <span id="currentSlide">1</span> / <span id="totalSlides">8</span>
+        </div>
+        
+        <button class="slide-btn next-btn" id="nextBtn" onclick="navigateSlide(1)">
+            Next
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9,18 15,12 9,6"></polyline>
+            </svg>
+        </button>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#introduction" class="nav-link" data-slide="1">Introduction</a></li>
+            <li><a href="#classes-objects" class="nav-link" data-slide="2">Classes & Objects</a></li>
+            <li><a href="#inheritance" class="nav-link" data-slide="3">Inheritance</a></li>
+            <li><a href="#polymorphism" class="nav-link" data-slide="4">Polymorphism</a></li>
+            <li><a href="#encapsulation" class="nav-link" data-slide="5">Encapsulation</a></li>
+            <li><a href="#abstraction" class="nav-link" data-slide="6">Abstraction</a></li>
+            <li><a href="#video-resources" class="nav-link" data-slide="7">Video Resources</a></li>
+            <li><a href="#exercises" class="nav-link" data-slide="8">Practical Exercises</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="introduction" class="section">
+            <h2>Introduction to OOP</h2>
+            <div class="content-box">
+                <div class="animation-container">
+                    <div class="animation" id="intro-animation"></div>
+                </div>
+                <div class="text-content">
+                    <p>Object-Oriented Programming (OOP) is a programming paradigm based on the concept of "objects", which can contain data and code. The data is in the form of fields (attributes or properties), and the code is in the form of procedures (methods).</p>
+                    <p>Java is a class-based, object-oriented programming language designed to have as few implementation dependencies as possible.</p>
+                    <p>The four main principles of OOP are:</p>
+                    <ul>
+                        <li>Encapsulation</li>
+                        <li>Inheritance</li>
+                        <li>Polymorphism</li>
+                        <li>Abstraction</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="classes-objects" class="section">
+            <h2>Classes & Objects</h2>
+            <div class="content-box">
+                <div class="animation-container">
+                    <div class="animation" id="class-object-animation"></div>
+                </div>
+                <div class="text-content">
+                    <h3>Classes</h3>
+                    <p>A class is a blueprint or template for creating objects. It defines the properties and behaviors that objects of that class will have.</p>
+                    
+                    <!-- Interactive Code Playground -->
+                    <div class="code-playground">
+                        <div class="playground-header">
+                            <h3>🚀 Interactive Code Playground</h3>
+                            <button class="run-code-btn" onclick="runJavaCode('classes-objects')">▶ Run Code</button>
+                        </div>
+                        <div class="code-editor">
+                            <textarea id="code-editor-classes-objects" class="code-input">public class Car {
+    // Fields (attributes)
+    private String model;
+    private String color;
+    private int year;
+    
+    // Constructor
+    public Car(String model, String color, int year) {
+        this.model = model;
+        this.color = color;
+        this.year = year;
+    }
+    
+    // Methods (behaviors)
+    public void drive() {
+        System.out.println("The " + color + " " + model + " is driving.");
+    }
+    
+    public void displayInfo() {
+        System.out.println("Car: " + year + " " + color + " " + model);
+    }
+}
+
+// Creating objects of the Car class
+Car myCar = new Car("Toyota", "Red", 2020);
+Car yourCar = new Car("Honda", "Blue", 2019);
+
+// Using object methods
+myCar.drive();
+myCar.displayInfo();
+yourCar.drive();
+yourCar.displayInfo();
+
+// Try creating your own car here!
+Car dreamCar = new Car("Ferrari", "Yellow", 2024);
+dreamCar.drive();
+dreamCar.displayInfo();</textarea>
+                        </div>
+                        <div class="output-container">
+                            <h4>📤 Output:</h4>
+                            <div id="output-classes-objects" class="code-output">Click "Run Code" to see the magic happen! ✨</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Knowledge Check Quiz -->
+                    <div class="quiz-container">
+                        <h3>🧠 Knowledge Check</h3>
+                        <div class="quiz-question">
+                            <p><strong>Question:</strong> What is the main difference between a class and an object?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="q1" value="a"> A class is an instance of an object</label>
+                                <label><input type="radio" name="q1" value="b"> A class is a blueprint, an object is an instance</label>
+                                <label><input type="radio" name="q1" value="c"> They are exactly the same thing</label>
+                                <label><input type="radio" name="q1" value="d"> Objects contain multiple classes</label>
+                            </div>
+                            <button class="check-answer-btn" onclick="checkQuizAnswer('q1', 'b', '🎉 Correct! A class is indeed a blueprint or template, while an object is a specific instance created from that class.')">Check Answer</button>
+                            <div class="quiz-feedback" id="feedback-q1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="inheritance" class="section">
+            <h2>Inheritance</h2>
+            <div class="content-box">
+                <div class="animation-container">
+                    <div class="animation" id="inheritance-animation"></div>
+                </div>
+                <div class="text-content">
+                    <p>Inheritance is a mechanism where a new class (subclass) can inherit properties and methods from an existing class (superclass).</p>
+                    <pre><code class="java">
+// Superclass
+public class Vehicle {
+    protected String brand;
+    
+    public Vehicle(String brand) {
+        this.brand = brand;
+    }
+    
+    public void honk() {
+        System.out.println("Tuut, tuut!");
+    }
+}
+
+// Subclass
+public class Car extends Vehicle {
+    private String model;
+    
+    public Car(String brand, String model) {
+        super(brand);  // Call the superclass constructor
+        this.model = model;
+    }
+    
+    public void displayInfo() {
+        System.out.println("Car: " + brand + " " + model);
+    }
+}
+
+// Usage
+Car myCar = new Car("Toyota", "Corolla");
+myCar.honk();         // Inherited method
+myCar.displayInfo();  // Own method
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="polymorphism" class="section">
+            <h2>Polymorphism</h2>
+            <div class="content-box">
+                <div class="animation-container">
+                    <div class="animation" id="polymorphism-animation"></div>
+                </div>
+                <div class="text-content">
+                    <p>Polymorphism means "many forms", and it occurs when we have many classes that are related to each other by inheritance.</p>
+                    <pre><code class="java">
+// Superclass
+class Animal {
+    public void makeSound() {
+        System.out.println("The animal makes a sound");
+    }
+}
+
+// Subclasses
+class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("The dog says: woof woof");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("The cat says: meow meow");
+    }
+}
+
+// Polymorphic usage
+Animal myAnimal = new Animal();
+Animal myDog = new Dog();
+Animal myCat = new Cat();
+
+myAnimal.makeSound();  // Output: The animal makes a sound
+myDog.makeSound();     // Output: The dog says: woof woof
+myCat.makeSound();     // Output: The cat says: meow meow
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="encapsulation" class="section">
+            <h2>Encapsulation</h2>
+            <div class="content-box">
+                <div class="animation-container">
+                    <div class="animation" id="encapsulation-animation"></div>
+                </div>
+                <div class="text-content">
+                    <p>Encapsulation is the technique of making the fields in a class private and providing access to the fields via public methods.</p>
+                    <pre><code class="java">
+public class Student {
+    // Private fields
+    private String name;
+    private int age;
+    private double gpa;
+    
+    // Constructor
+    public Student(String name, int age, double gpa) {
+        this.name = name;
+        this.setAge(age);  // Using setter for validation
+        this.gpa = gpa;
+    }
+    
+    // Getters and Setters
+    public String getName() {
+        return name;
+    }
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    public int getAge() {
+        return age;
+    }
+    
+    public void setAge(int age) {
+        // Validation
+        if (age > 0) {
+            this.age = age;
+        } else {
+            System.out.println("Age cannot be negative or zero");
+        }
+    }
+    
+    public double getGpa() {
+        return gpa;
+    }
+    
+    public void setGpa(double gpa) {
+        this.gpa = gpa;
+    }
+}
+
+// Usage
+Student student = new Student("John", 20, 3.8);
+System.out.println(student.getName());  // Output: John
+student.setAge(-5);  // Output: Age cannot be negative or zero
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="abstraction" class="section">
+            <h2>Abstraction</h2>
+            <div class="content-box">
+                <div class="animation-container">
+                    <div class="animation" id="abstraction-animation"></div>
+                </div>
+                <div class="text-content">
+                    <p>Abstraction is the concept of hiding the complex implementation details and showing only the necessary features of an object.</p>
+                    <pre><code class="java">
+// Abstract class
+abstract class Shape {
+    // Abstract method (no implementation)
+    public abstract double calculateArea();
+    
+    // Regular method
+    public void display() {
+        System.out.println("This is a shape");
+    }
+}
+
+// Concrete subclasses
+class Circle extends Shape {
+    private double radius;
+    
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+    
+    @Override
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+class Rectangle extends Shape {
+    private double length;
+    private double width;
+    
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+    
+    @Override
+    public double calculateArea() {
+        return length * width;
+    }
+}
+
+// Usage
+Circle circle = new Circle(5);
+System.out.println("Circle area: " + circle.calculateArea());
+
+Rectangle rectangle = new Rectangle(4, 6);
+System.out.println("Rectangle area: " + rectangle.calculateArea());
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="video-resources" class="section">
+            <h2>Video Learning Resources</h2>
+            <div class="video-grid">
+                <div class="video-item">
+                    <h3>Java OOP Concepts</h3>
+                    <iframe width="100%" height="250" src="https://www.youtube.com/embed/pTB0EiLXUC8" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-item">
+                    <h3>Classes and Objects</h3>
+                    <iframe width="100%" height="250" src="https://www.youtube.com/embed/0NPR8GFHNmE" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-item">
+                    <h3>Inheritance in Java</h3>
+                    <iframe width="100%" height="250" src="https://www.youtube.com/embed/Zs342ePFvRI" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="exercises" class="section">
+            <h2>Practical Exercises</h2>
+            
+            <div class="exercise-container">
+                <div class="exercise" id="exercise1">
+                    <h3>Exercise 1: Creating Classes and Objects</h3>
+                    <p>Create a <code>BankAccount</code> class with the following:</p>
+                    <ul>
+                        <li>Private fields for account number, account holder name, and balance</li>
+                        <li>A constructor to initialize these fields</li>
+                        <li>Methods for deposit, withdrawal, and checking balance</li>
+                    </ul>
+                    <button class="show-answer-btn" onclick="toggleAnswer('answer1')">Show Answer</button>
+                    <div class="answer" id="answer1">
+                        <pre><code class="java">
+public class BankAccount {
+    private String accountNumber;
+    private String accountHolderName;
+    private double balance;
+    
+    public BankAccount(String accountNumber, String accountHolderName, double initialBalance) {
+        this.accountNumber = accountNumber;
+        this.accountHolderName = accountHolderName;
+        this.balance = initialBalance;
+    }
+    
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited: $" + amount);
+        } else {
+            System.out.println("Invalid deposit amount");
+        }
+    }
+    
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawn: $" + amount);
+        } else {
+            System.out.println("Invalid withdrawal amount or insufficient balance");
+        }
+    }
+    
+    public void checkBalance() {
+        System.out.println("Account: " + accountNumber);
+        System.out.println("Holder: " + accountHolderName);
+        System.out.println("Balance: $" + balance);
+    }
+}
+
+// Usage
+BankAccount account = new BankAccount("123456789", "John Doe", 1000.0);
+account.deposit(500.0);
+account.withdraw(200.0);
+account.checkBalance();
+                        </code></pre>
+                    </div>
+                </div>
+                
+                <div class="exercise" id="exercise2">
+                    <h3>Exercise 2: Inheritance and Polymorphism</h3>
+                    <p>Create a class hierarchy for different types of employees in a company:</p>
+                    <ul>
+                        <li>Create an abstract <code>Employee</code> class with fields for name, ID, and salary</li>
+                        <li>Create concrete subclasses for <code>Manager</code>, <code>Developer</code>, and <code>Designer</code></li>
+                        <li>Implement a method <code>calculateBonus()</code> that calculates different bonuses based on employee type</li>
+                    </ul>
+                    <button class="show-answer-btn" onclick="toggleAnswer('answer2')">Show Answer</button>
+                    <div class="answer" id="answer2">
+                        <pre><code class="java">
+// Abstract Employee class
+abstract class Employee {
+    protected String name;
+    protected String id;
+    protected double salary;
+    
+    public Employee(String name, String id, double salary) {
+        this.name = name;
+        this.id = id;
+        this.salary = salary;
+    }
+    
+    // Abstract method to be implemented by subclasses
+    public abstract double calculateBonus();
+    
+    public void displayInfo() {
+        System.out.println("Employee ID: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("Salary: $" + salary);
+        System.out.println("Bonus: $" + calculateBonus());
+    }
+}
+
+// Manager subclass
+class Manager extends Employee {
+    private int teamSize;
+    
+    public Manager(String name, String id, double salary, int teamSize) {
+        super(name, id, salary);
+        this.teamSize = teamSize;
+    }
+    
+    @Override
+    public double calculateBonus() {
+        // Managers get 20% of salary plus $100 per team member
+        return (0.2 * salary) + (100 * teamSize);
+    }
+}
+
+// Developer subclass
+class Developer extends Employee {
+    private String programmingLanguage;
+    
+    public Developer(String name, String id, double salary, String programmingLanguage) {
+        super(name, id, salary);
+        this.programmingLanguage = programmingLanguage;
+    }
+    
+    @Override
+    public double calculateBonus() {
+        // Developers get 15% of salary
+        return 0.15 * salary;
+    }
+}
+
+// Designer subclass
+class Designer extends Employee {
+    private int projectsCompleted;
+    
+    public Designer(String name, String id, double salary, int projectsCompleted) {
+        super(name, id, salary);
+        this.projectsCompleted = projectsCompleted;
+    }
+    
+    @Override
+    public double calculateBonus() {
+        // Designers get 10% of salary plus $200 per completed project
+        return (0.1 * salary) + (200 * projectsCompleted);
+    }
+}
+
+// Usage
+Employee manager = new Manager("Alice Smith", "M001", 80000, 5);
+Employee developer = new Developer("Bob Johnson", "D001", 65000, "Java");
+Employee designer = new Designer("Carol Williams", "G001", 60000, 3);
+
+manager.displayInfo();
+developer.displayInfo();
+designer.displayInfo();
+                        </code></pre>
+                    </div>
+                </div>
+                
+                <div class="exercise" id="exercise3">
+                    <h3>Exercise 3: Encapsulation and Abstraction</h3>
+                    <p>Create a <code>Library</code> system with the following:</p>
+                    <ul>
+                        <li>A <code>Book</code> class with private fields for title, author, ISBN, and availability status</li>
+                        <li>A <code>Library</code> class that manages a collection of books</li>
+                        <li>Methods for adding books, borrowing books, returning books, and searching for books</li>
+                    </ul>
+                    <button class="show-answer-btn" onclick="toggleAnswer('answer3')">Show Answer</button>
+                    <div class="answer" id="answer3">
+                        <pre><code class="java">
+import java.util.ArrayList;
+import java.util.List;
+
+// Book class with encapsulation
+class Book {
+    private String title;
+    private String author;
+    private String isbn;
+    private boolean isAvailable;
+    
+    public Book(String title, String author, String isbn) {
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+        this.isAvailable = true;
+    }
+    
+    // Getters and setters
+    public String getTitle() {
+        return title;
+    }
+    
+    public String getAuthor() {
+        return author;
+    }
+    
+    public String getIsbn() {
+        return isbn;
+    }
+    
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+    
+    public void setAvailable(boolean available) {
+        isAvailable = available;
+    }
+    
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", available=" + isAvailable +
+                '}';
+    }
+}
+
+// Library class to manage books
+class Library {
+    private List<Book> books;
+    
+    public Library() {
+        this.books = new ArrayList<>();
+    }
+    
+    // Add a book to the library
+    public void addBook(Book book) {
+        books.add(book);
+        System.out.println("Book added: " + book.getTitle());
+    }
+    
+    // Borrow a book from the library
+    public boolean borrowBook(String isbn) {
+        for (Book book : books) {
+            if (book.getIsbn().equals(isbn) && book.isAvailable()) {
+                book.setAvailable(false);
+                System.out.println("Book borrowed: " + book.getTitle());
+                return true;
+            }
+        }
+        System.out.println("Book not available or not found");
+        return false;
+    }
+    
+    // Return a book to the library
+    public boolean returnBook(String isbn) {
+        for (Book book : books) {
+            if (book.getIsbn().equals(isbn) && !book.isAvailable()) {
+                book.setAvailable(true);
+                System.out.println("Book returned: " + book.getTitle());
+                return true;
+            }
+        }
+        System.out.println("Book was not borrowed or not found");
+        return false;
+    }
+    
+    // Search for books by title
+    public List<Book> searchByTitle(String title) {
+        List<Book> result = new ArrayList<>();
+        for (Book book : books) {
+            if (book.getTitle().toLowerCase().contains(title.toLowerCase())) {
+                result.add(book);
+            }
+        }
+        return result;
+    }
+    
+    // Search for books by author
+    public List<Book> searchByAuthor(String author) {
+        List<Book> result = new ArrayList<>();
+        for (Book book : books) {
+            if (book.getAuthor().toLowerCase().contains(author.toLowerCase())) {
+                result.add(book);
+            }
+        }
+        return result;
+    }
+    
+    // Display all books in the library
+    public void displayAllBooks() {
+        if (books.isEmpty()) {
+            System.out.println("The library is empty");
+        } else {
+            System.out.println("Library Books:");
+            for (Book book : books) {
+                System.out.println(book);
+            }
+        }
+    }
+}
+
+// Usage
+public class LibrarySystem {
+    public static void main(String[] args) {
+        Library library = new Library();
+        
+        // Adding books
+        library.addBook(new Book("Java Programming", "John Smith", "123456"));
+        library.addBook(new Book("Data Structures", "Jane Doe", "789012"));
+        library.addBook(new Book("Algorithms", "John Smith", "345678"));
+        
+        // Display all books
+        library.displayAllBooks();
+        
+        // Borrow a book
+        library.borrowBook("123456");
+        
+        // Search for books
+        System.out.println("Books by John Smith:");
+        List<Book> authorBooks = library.searchByAuthor("John Smith");
+        for (Book book : authorBooks) {
+            System.out.println(book);
+        }
+        
+        // Return a book
+        library.returnBook("123456");
+    }
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Java OOP Guide for Diploma Students</p>
+    </footer>
+
+    <script src="java_oop_script.js"></script>
+</body>
+</html>
